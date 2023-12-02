@@ -5,7 +5,11 @@ const multer = require('multer')
 
 
 // image upload
-
+let storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+    cb(null, '')
+}
+})
 
 router.get('/',(req,res)=>{
     res.render('index',{title:'Home Page'})
