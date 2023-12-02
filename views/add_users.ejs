@@ -1,0 +1,40 @@
+<%- include('layouts/header') %>
+<div class="container ">
+    <div class="row ">
+      <div class="col-lg-6 mx-auto mt-4">
+        <div class="card shadow">
+          <div class="card-header bg-primary">
+            <h3 class="card-title text-center">Sign Up</h3>
+            </div>
+            <div class="card-body p-4">
+            <form action="/add" method="post" id="add-form" enctype="multipart/form-data">
+              <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+              </div>
+              <div class="mb-3">
+                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
+              </div>
+              <div class="mb-3">
+                <label for="profileImage" class="form-label">Profile Image</label>
+                <input type="file" class="form-control" id="profileImage" name="profileImage" accept="image/*">
+                <!-- Optional: Add JavaScript for image preview -->
+                <img id="imagePreview" src="#" alt="Preview" style="display:none; max-width:100%; margin-top:10px;">
+              </div>
+              <button type="submit" class="btn btn-primary">Sign Up</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<%- include('layouts/footer') %>
