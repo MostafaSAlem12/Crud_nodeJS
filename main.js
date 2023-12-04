@@ -51,7 +51,7 @@ app.listen(PORT, () => {
     console.log(`server is running on http://localhost:${PORT}`)
 })
 
-app.use('/crud',require('./routes/routes.js'),(req,res)=>{
+app.use('',require('./routes/routes.js'),(req,res)=>{
 
 })
 

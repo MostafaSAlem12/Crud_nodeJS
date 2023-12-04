@@ -16,6 +16,10 @@
                 <label for="email" class="form-label">Email address</label>
                 <input type="email" class="form-control" id="email" name="email" required>
               </div>
+               <div class="mb-3">
+                <label for="phone" class="form-label">Phone number</label>
+                <input type="tel" class="form-control" id="phone" name="phone" required>
+              </div>
               <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
                 <input type="password" class="form-control" id="password" name="password" required>
@@ -25,10 +29,9 @@
                 <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
               </div>
               <div class="mb-3">
-                <label for="profileImage" class="form-label">Profile Image</label>
-                <input type="file" class="form-control" id="profileImage" name="profileImage" accept="image/*">
+                <label for="image" class="form-label">select image</label>
+                <input type="file" class="form-control form-control-lg"  name="image" required/>
                 <!-- Optional: Add JavaScript for image preview -->
-                <img id="imagePreview" src="#" alt="Preview" style="display:none; max-width:100%; margin-top:10px;">
               </div>
               <button type="submit" class="btn btn-primary">Sign Up</button>
             </form>
