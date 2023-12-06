@@ -70,4 +70,27 @@ router.get('/about',(req,res)=>{
 router.get('/contact',(req,res)=>{
     res.render('contact',{title:'Contact'})
 })
+
+
+router.get("/edit/:id", (req, res) => {
+  const userId = req.params.id;
+
+  // Use the promise syntax for findById
+  User.findById(userId)
+    .then((user) => {
+      if (!user) {
+        // If user not found, send a 404 status
+        res.status(404).send("User not found");
+        return;
+      }
+
+      // Render the edit_users.ejs view and pass the user object
+      res.render("edit_users", { user: user, title: 'Edit users' });
+    })
+    .catch((err) => {
+      // Handle the error, for now, send a 500 status
+      res.status(500).send("Internal Server Error");
+    });
+});
+
 module.exports = router;
