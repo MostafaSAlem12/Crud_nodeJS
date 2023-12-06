@@ -49,13 +49,11 @@ app.use(express.static("uploads"));
 app.set('view engine', 'ejs');
 
 
+//route prefix
+app.use('',require('./routes/routes.js'))
+
 app.listen(PORT, () => {
-    console.log(`server is running on http://localhost:${PORT}`)
+console.log(`server is running on http://localhost:${PORT}`)
 })
-
-app.use('',require('./routes/routes.js'),(req,res)=>{
-
-})
-
 // app.use('/add',require('./routes/routes.js'));
 // app.use('/about',require('./routes/routes.js'));
