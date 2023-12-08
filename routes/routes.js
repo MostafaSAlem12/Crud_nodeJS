@@ -73,7 +73,7 @@ router.get('/contact',(req,res)=>{
 
 
 router.get("/edit/:id", (req, res) => {
-  const userId = req.params.id;
+  let userId = req.params.id;
 
   // Use the promise syntax for findById
   User.findById(userId)
@@ -84,13 +84,41 @@ router.get("/edit/:id", (req, res) => {
         return;
       }
 
-      // Render the edit_users.ejs view and pass the user object
+      // Render the edit_users.ejs view and pass the user object  
       res.render("edit_users", { user: user, title: 'Edit users' });
     })
     .catch((err) => {
       // Handle the error, for now, send a 500 status
-      res.status(500).send("Internal Server Error");
+        res.status(500).send("Internal Server Error");
+        res.redirect('/')
     });
 });
+
+
+
+
+router.delete("/delete/:id", (req, res) => { 
+  let userId = req.params.id;
+
+  // Use the promise syntax for findById
+  User.findById(userId)
+    .then((user) => {
+      if (!user) {
+        // If user not found, send a 404 status
+        res.status(404).send("User not found");
+        return;
+      }
+
+      // Render the edit_users.ejs view and pass the user object  
+      user.delete();
+      res.render("User has been deleted successfully!");
+    })
+    .catch((err) => {
+      // Handle the error, for now, send a 500 status
+        res.status(500).send("Internal Server Error");
+        res.redirect('/')
+    });
+});
+
 
 module.exports = router;
